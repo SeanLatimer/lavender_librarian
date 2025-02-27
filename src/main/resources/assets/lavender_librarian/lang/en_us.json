@@ -1,4 +1,5 @@
 {
   "text.config.lavender-librarian.title": "Lavender Librarian Config",
-  "text.config.lavender-librarian.option.bookIdentifiers": "Book Identifiers"
+  "text.config.lavender-librarian.option.bookIdentifiers": "Book Identifiers",
+  "itemGroup.lavender_librarian.books": "Lavender Librarian Books"
 }

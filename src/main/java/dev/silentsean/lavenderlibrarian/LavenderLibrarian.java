@@ -2,6 +2,9 @@ package dev.silentsean.lavenderlibrarian;
 
 import io.wispforest.lavender.Lavender;
 import io.wispforest.lavender.book.LavenderBookItem;
+import io.wispforest.owo.itemgroup.Icon;
+import io.wispforest.owo.itemgroup.OwoItemGroup;
+import io.wispforest.owo.itemgroup.OwoItemSettings;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.item.Item;
@@ -19,8 +22,14 @@ public class LavenderLibrarian implements ModInitializer {
 			dev.silentsean.lavenderlibrarian.LibrarianConfig.createAndLoad();
 	private static final HashMap<Identifier, LavenderBookItem> LOADED_BOOKS = new HashMap<>();
 
+	public static final OwoItemGroup BOOKS_GROUP = OwoItemGroup
+			.builder(new Identifier(MOD_ID, "books"), () -> Icon.of(LavenderBookItem.DYNAMIC_BOOK))
+			// additional builder configuration goes between these lines
+			.build();
+
 	@Override
 	public void onInitialize() {
+		BOOKS_GROUP.initialize();
 		var books = CONFIG.bookIdentifiers();
 		for (var book : books) {
 			book = book.trim();
@@ -38,7 +47,7 @@ public class LavenderLibrarian implements ModInitializer {
                 LOGGER.warn("Duplicate book identifier for {} found", book);
 				continue;
 			}
-			LOADED_BOOKS.put(bookIdentifier, LavenderBookItem.registerForBook(bookIdentifier, new Item.Settings().maxCount(1)));
+			LOADED_BOOKS.put(bookIdentifier, LavenderBookItem.registerForBook(bookIdentifier, new OwoItemSettings().group(BOOKS_GROUP).maxCount(1)));
             LOGGER.debug("Registered {}", bookIdentifier);
 		}
 	}
