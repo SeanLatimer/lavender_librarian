@@ -1,0 +1,33 @@
+{
+	"schemaVersion": 1,
+	"id": "lavender_librarian",
+	"version": "${version}",
+	"name": "Lavender Librarian",
+	"description": "Registers book items for Lavender, alleviating the issues of using custom models with dynamic books.",
+	"authors": [
+		"SilentSean"
+	],
+	"contact": {
+		"homepage": "https://github.com/seanlatimer/lavender_librarian",
+		"sources": "https://github.com/seanlatimer/lavender_librarian"
+	},
+	"license": "MPL-2.0",
+	"icon": "assets/lavender_librarian/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"dev.silentsean.lavenderlibrarian.LavenderLibrarian"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*",
+		"owo-lib": ">=${owo_version}",
+		"lavender": ">=${lavender_version}"
+	},
+	"suggests": {
+		"modmenu": ">=${modmenu_version}"
+	}
+}
