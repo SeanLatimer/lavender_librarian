@@ -24,10 +24,10 @@
 		"minecraft": "~1.20.1",
 		"java": ">=17",
 		"fabric-api": "*",
-		"owo-lib": ">=${owo_version}",
-		"lavender": ">=${lavender_version}"
+		"owo-lib": ">=0.11.2",
+		"lavender": ">=0.1.9"
 	},
 	"suggests": {
-		"modmenu": ">=${modmenu_version}"
+		"modmenu": ">=7.2.2"
 	}
 }
